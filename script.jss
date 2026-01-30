@@ -1,19 +1,20 @@
-console.log("welcome to Spotify");
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("welcome to Spotify");
 let songIndex =0;
-let audioElement = new Audio('song/2.mp3');
+let audioElement = new Audio('5.mp3');
 let masterPlay = document.getElementById('masterPlay');
 let myprogressbar = document.getElementById('myprogressbar');
 let masterSongName = document.getElementById('masterSongName');
 let songItems = Array.from(document.getElementsByClassName('songItem'));
 let songs=[
-    {songName:"I Wanna Be Yours - AM", filePath:"song/1.mp3",coverPath:"song/60.jpg"},
-    {songName:"Azul - Guru Randhawa", filePath:"song/2.mp3",coverPath:"song/20.jpg"},
-    {songName:"Lover- Taylor Swift Dezire", filePath:"song/4.mp3",coverPath:"song/30.jpg"},
-    {songName:"Wildest Dreams- Taylor Swift Dezire", filePath:"song/3.mp3",coverPath:"song/40.jpg"},
-    {songName:"Blank Space- Taylor Swift Dezire", filePath:"song/1.mp3",coverPath:"song/50.jpg"},
-    {songName:"22-Taylor Swift Dezire", filePath:"song/2.mp3",coverPath:"song/10.jpg"},
-    {songName:"August-Taylor Swift Dezire", filePath:"song/5.mp3",coverPath:"song/30.jpg"},
-    {songName:"All too well- Taylor Swift Dezire", filePath:"song/4.mp3",coverPath:"song/80.jpg"},
+    {songName:"I Wanna Be Yours - AM", filePath:"1.mp3",coverPath:"60.jpg"},
+    {songName:"Azul - Guru Randhawa", filePath:"2.mp3",coverPath:"20.jpg"},
+    {songName:"Lover- Taylor Swift Dezire", filePath:"4.mp3",coverPath:"30.jpg"},
+    {songName:"Wildest Dreams- Taylor Swift Dezire", filePath:"3.mp3",coverPath:"40.jpg"},
+    {songName:"Blank Space- Taylor Swift Dezire", filePath:"1.mp3",coverPath:"50.jpg"},
+    {songName:"22-Taylor Swift Dezire", filePath:"2.mp3",coverPath:"10.jpg"},
+    {songName:"August-Taylor Swift Dezire", filePath:"5.mp3",coverPath:"30.jpg"},
+    {songName:"All too well- Taylor Swift Dezire", filePath:"4.mp3",coverPath:"80.jpg"},
 ]
 songItems.forEach((Element,i)=>{
     Element.getElementsByTagName("img")[0].src = songs[i].coverPath;
@@ -36,7 +37,7 @@ masterPlay.addEventListener('click',()=>{
 audioElement.addEventListener('timeupdate',()=>{
     
     //update seeekbar
-    progress = parseInt((audioElement.currentTime/audioElement.duration)*100);
+     let progress = parseInt((audioElement.currentTime/audioElement.duration)*100);
     myprogressbar.value= progress;
 })
 
@@ -94,4 +95,5 @@ document.getElementById('previous').addEventListener('click',()=>{
         masterPlay.classList.remove('fa-play');
         masterPlay.classList.add('fa-pause');
 })
+});
 
